@@ -6,7 +6,8 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   if (!user) {
     return navigateTo("/login");
   }
-
+ 
+  
   const role = await getUserRole(user.uid);
   if (role !== "admin") {
     return navigateTo("/"); // ✅ Redireciona usuários comuns
